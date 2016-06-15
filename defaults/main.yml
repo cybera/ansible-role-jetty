@@ -1,5 +1,5 @@
 ---
-jetty_version: '9.2.3.v20140905'
+jetty_version: '9.2.17.v20160517'
 jetty_src_dir: /usr/src
 jetty_dst_dir: /opt
 

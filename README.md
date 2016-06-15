@@ -10,7 +10,7 @@ Role Variables
 
 * `jetty_version`
 
-  Version of Jetty that will be installed. (Default is `9.2.3.v20140905`.)
+  Version of Jetty that will be installed. (Default is `9.2.17.v20160517`.)
 
 * `jetty_host`
 

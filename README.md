@@ -119,4 +119,5 @@ Author Information
 ------------------
 
 Slava Semushin (slava.semushin@gmail.com)
+
 Andrew Klaus (andrewklaus@gmail.com) - Updated jetty version / added `become` module use

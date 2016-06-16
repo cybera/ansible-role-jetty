@@ -5,6 +5,8 @@
     url="http://eclipse.org/downloads/download.php?file=/jetty/{{ jetty_version }}/dist/jetty-distribution-{{ jetty_version }}.tar.gz&r=1"
     dest={{ jetty_src_dir }}
   become: yes
+  tags:
+    - jetty
 
 - name: Create group
   group:
@@ -13,6 +15,8 @@
     system=yes
   when: jetty_group_create
   become: yes
+  tags:
+    - jetty
 
 - name: Create user
   user:
@@ -26,6 +30,8 @@
     system=yes
   when: jetty_user_create
   become: yes
+  tags:
+    - jetty
 
 - name: Unpack distribution
   unarchive:
@@ -34,6 +40,8 @@
     creates="{{ jetty_dst_dir}}/jetty-distribution-{{ jetty_version }}"
     copy=no
   become: yes
+  tags:
+    - jetty
 
 - name: Chown jetty directory to jetty user
   file:
@@ -43,6 +51,8 @@
     owner={{ jetty_user_login }}
     group={{ jetty_group_name }}
   become: yes
+  tags:
+    - jetty
 
 - name: Create symbolic link to distribution
   file:
@@ -50,6 +60,8 @@
     dest={{ jetty_dst_dir }}/jetty
     state=link
   become: yes
+  tags:
+    - jetty
 
 - name: Create symbolic link to logs
   file:
@@ -57,6 +69,8 @@
     dest=/var/log/jetty
     state=link
   become: yes
+  tags:
+    - jetty
 
 - name: Create init script
   file:
@@ -64,6 +78,8 @@
     dest=/etc/init.d/jetty
     state=link
   become: yes
+  tags:
+    - jetty
 
 - name: Create default configuration file
   template:
@@ -74,6 +90,8 @@
     mode=0644
   notify: Restart Jetty
   become: yes
+  tags:
+    - jetty
 
 - name: Run and enable Jetty to start on boot
   service:
@@ -81,3 +99,5 @@
     state=started
     enabled=yes
   become: yes
+  tags:
+    - jetty

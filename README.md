@@ -68,14 +68,14 @@ Actions role
 How to install
 --------------
 
-    ansible-galaxy install php-coder.jetty
+    ansible-galaxy install cybera.jetty
 
 For more installation's options/variants read the documentation: http://docs.ansible.com/galaxy.html
 
 Dependencies
 ------------
 
-* [php-coder.oraclejdk](https://galaxy.ansible.com/list#/roles/2093)
+* [cybera.oraclejdk](https://galaxy.ansible.com/cybera/jetty/)
 
 Example Playbook
 ----------------
@@ -84,14 +84,14 @@ Example of usage with default parameters:
 
     - hosts: all
       roles:
-         - php-coder.jetty
+         - cybera.jetty
 
 Example of usage with custom host/port and Java options:
 
     - hosts: all
       roles:
          - {
-             role: php-coder.jetty,
+             role: cybera.jetty,
              jetty_host: '127.0.0.1',
              jetty_port: 9090,
              jetty_java_options: '-XX:+UseCompressedOops -Dsun.rmi.dgc.client.gcInterval=86400000 -Dsun.rmi.dgc.server.gcInterval=86400000'
@@ -103,7 +103,7 @@ Example of usage with existing user and group:
     - hosts: all
       roles:
          - {
-             role: php-coder.jetty,
+             role: cybera.jetty,
              jetty_user_create: false,
              jetty_user_login: 'www-data',
              jetty_group_create: false,
@@ -119,3 +119,4 @@ Author Information
 ------------------
 
 Slava Semushin (slava.semushin@gmail.com)
+Andrew Klaus (andrewklaus@gmail.com) - Updated jetty version / added `become` module use
